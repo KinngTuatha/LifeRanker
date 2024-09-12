@@ -78,6 +78,29 @@ body.dark-mode {
     height: 30px;
 }
 
+@media (max-width: 768px) {
+    .switch {
+        position: absolute;
+        top: 1%;
+        right: 3%;
+        display: inline-block;
+        padding: 1px;
+        width: 60px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 668px) {
+    .logoLR {
+        position: absolute;
+        top: 0.25%;
+        display: inline-block;
+        padding: 1px;
+        width: 100px;
+        height: 75px;
+    }
+}
+
 .switch input[type="checkbox"] {
     display: none;
 }
