@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeRanker</title>
+  <link rel="icon" type="image/png" href="img/logo.ico">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="content">
+  <header id="top-header">
+    <img class="logoLR" src="img/logo.png">
+    <h1>LIFERANKER</h1>  
+  <div class="switch">
+    <input type="checkbox" id="theme-toggle" />
+    <label for="theme-toggle"></label>
+  </div>
+  </header>
+
+  <section class="tier">
+    <div class="row">
+      <aside class="label" style="--level: var(--color-s)">
+        <span contenteditable="true">S</span>
+      </aside>
+    </div>
+
+    <div class="row">
+      <aside class="label" style="--level: var(--color-a)">
+        <span contenteditable="true">A</span>
+      </aside>
+    </div>
+
+    <div class="row">
+      <aside class="label" style="--level: var(--color-b)">
+        <span contenteditable="true">B</span>
+      </aside>
+    </div>
+
+    <div class="row">
+      <aside class="label" style="--level: var(--color-c)">
+        <span contenteditable="true">C</span>
+      </aside>
+    </div>
+
+    <div class="row">
+      <aside class="label" style="--level: var(--color-d)">
+        <span contenteditable="true">D</span>
+      </aside>
+    </div>
+
+    <div class="row">
+      <aside class="label" style="--level: var(--color-e)">
+        <span contenteditable="true">E</span>
+      </aside>
+    </div>
+
+    <div class="row">
+      <aside class="label" style="--level: var(--color-f)">
+        <span contenteditable="true">F</span>
+      </aside>
+    </div>
+
+    <div class="row">
+      <aside class="label" style="--level: var(--color-g)">
+        <span contenteditable="true">G</span>
+      </aside>
+    </div>
+
+    <div class="row">
+      <aside class="label" style="--level: var(--color-h)">
+        <span contenteditable="true">H</span>
+      </aside>
+    </div>
+
+  </section>
+
+  <footer id="selector">
+
+    <section id="selector-buttons">
+      <label>
+        <img src="img/add.png" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <input multiple accept="image/*" id="image-input" type="file" hidden />
+      </label>
+
+      <button id="reset-tier-button">
+        <img src="img/reset.png" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      </button>
+
+      <button id="save-tier-button">
+        <img src="img/save.png" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-device-floppy">
+      </button>
+    </section>
+
+    <section id="selector-items">
+
+    </section>
+  </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
