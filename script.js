@@ -1,11 +1,39 @@
 const themeToggle = document.getElementById('theme-toggle');
 const content = document.getElementById('content');
 const h1 = document.querySelector('h1');
+const nav = document.querySelector('nav');
+const ul = document.querySelector('ul');
+const barButton = document.getElementById('nav-toggle');
+const navButton = document.querySelectorAll('.nav-button');
 
 themeToggle.addEventListener('click', () => {
 document.body.classList.toggle('dark-mode');
 h1.classList.toggle('dark-mode');
+nav.classList.toggle('dark-mode');
+ul.classList.toggle('dark-mode');
+barButton.classList.toggle('dark-mode');
+navButton.forEach((button) => {
+  button.classList.toggle('dark-mode');
 });
+});
+
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.querySelector('nav ul');
+
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+const navBar = document.getElementById('nav-bar');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) { 
+    navBar.classList.add('hide');
+  } else { 
+    navBar.classList.remove('hide');
+  }
+});
+
 
 const $ = el => document.querySelector(el)
 const $$ = el => document.querySelectorAll(el)
@@ -16,6 +44,7 @@ const resetButton = $('#reset-tier-button')
 const saveButton = $('#save-tier-button')
 
 function createItem(src) {
+  console.log('Creando con createItem');
   const imgElement = document.createElement('img')
   imgElement.draggable = true
   imgElement.src = src
@@ -29,6 +58,7 @@ function createItem(src) {
 }
 
 function useFilesToCreateItems(files) {
+  console.log('Creando con files');
   if (files && files.length > 0) {
     Array.from(files).forEach(file => {
       const reader = new FileReader()
@@ -66,6 +96,7 @@ itemsSection.addEventListener('drop', handleDropFromDesktop)
 itemsSection.addEventListener('dragover', handleDragOverFromDesktop)
 
 function handleDragOverFromDesktop(event) {
+  console.log('fromdesktop');
   event.preventDefault()
 
   const { currentTarget, dataTransfer } = event
@@ -76,6 +107,7 @@ function handleDragOverFromDesktop(event) {
 }
 
 function handleDropFromDesktop(event) {
+  console.log('Creando con fromdesktop');
   event.preventDefault()
   const { currentTarget, dataTransfer } = event
 
@@ -85,22 +117,30 @@ function handleDropFromDesktop(event) {
     useFilesToCreateItems(files)
   }
 }
-
+const itemloco = $$('.item-image')
 function handleDrop(event) {
   event.preventDefault()
 
   const { currentTarget, dataTransfer } = event
 
-  if (sourceContainer && draggedElement) {
-    sourceContainer.removeChild(draggedElement)
-  }
+  if (draggedElement === itemloco) {
+    // Prevent the function from activating
+    console.log('Drag and drop from same HTML element detected. Function not activated.');
+  } else {
+    // Activate the function
+    console.log('Drag and drop from external source detected!');
+    if (sourceContainer && draggedElement) {
+      console.log('Eliminando elemento original del contenedor original');
+      sourceContainer.removeChild(draggedElement);
+    }
 
-  if (draggedElement) {
+    if (draggedElement !== itemsSection) {
+    console.log('Creando');
     const src = dataTransfer.getData('text/plain')
     const imgElement = createItem(src)
-    currentTarget.appendChild(imgElement)
+    currentTarget.appendChild(imgElement)      
+    }
   }
-
   currentTarget.classList.remove('drag-over')
   currentTarget.querySelector('.drag-preview')?.remove()
 }
@@ -167,3 +207,4 @@ saveButton.addEventListener('click', () => {
       })
     })
 })
+
